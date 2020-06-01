@@ -8,7 +8,13 @@
 <body>
     <p>뉴스 : {{news_list}}</p>
     <p>트위터 : {{realtime_twitter_list}}</p>
-    <p>카페 : {{realtime_nvcafe_list}}</p>
+    <p>카페 : {{nvcafe_list}}</p>
+    <p>블로그 : {{blog_list}}</p>
+    <p>포스트 : {{post_list}}</p>
     <p>태그 : {{tags}}</p>
+    {% if True %}
+    <img src="{{ url_for('static', filename=img_src) }}">
+    {% endif %}
+ 
 </body>
 </html>

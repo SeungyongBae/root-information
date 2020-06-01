@@ -18,21 +18,26 @@ def index():
 @app.route('/post', methods=['POST'])
 def post():
     value = request.form['keyword']
-    run.search(value)
 
+    run.search(value)
     run.extract()
     run.make_cloud()
 
     news_list = run.get_news_list()
     realtime_twitter_list = run.get_realtime_twitter_list()
-    realtime_nvcafe_list = run.get_realtime_nvcafe_list()
+    nvcafe_list = run.get_nvcafe_list()
+    blog_list = run.get_blog_list()
+    post_list = run.get_post_list()
     tags = run.get_tags()
 
     return render_template('result.html', 
                             news_list=news_list,
                             realtime_twitter_list=realtime_twitter_list,
-                            realtime_nvcafe_list=realtime_nvcafe_list,
-                            tags=tags)
+                            nvcafe_list=nvcafe_list,
+                            blog_list=blog_list,
+                            post_list=post_list,
+                            tags=tags,
+                            img_src=value+'.png')
 
 
 if __name__ == '__main__':
