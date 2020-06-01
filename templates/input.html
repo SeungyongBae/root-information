@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boogle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"">
+</head>
+<body>
+    <h1><span>B</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></h1>
+    <form action="/post" method="post">
+        <div class="search-bar mx-auto input-group mb-3 mt-5">
+            <input name="keyword" type="text" class="form-control rounded-pill" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
+        </div>
+    </form>
+    <p>{{keywords}}</p>
+</body>
+</html>

@@ -1,7 +1,8 @@
 from scrape import Scrap
 
 run = Scrap()
-run.get_keyword()
+keyword = run.get_keyword()
+run.search(keyword[0])
 print("뉴스 :", run.get_news_list())
 print("트위터 :", run.get_realtime_twitter_list())
 print("카페 :", run.get_realtime_nvcafe_list())

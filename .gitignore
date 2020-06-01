@@ -1,4 +1,5 @@
-.vcode
+.vscode/*
 __pycache__
 
-*png
+*.png
+*.ttf
