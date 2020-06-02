@@ -88,11 +88,11 @@ class Scrap:
         processed = [n for n in nouns if len(n) >= 2]   # min length 2
         count = Counter(processed)
 
-        self.tags = count.most_common(15)
+        self.tags = count.most_common(20)
         print(self.tags)
 
 
-    def make_cloud(self):
+    def make_cloud(self, rand):
         font_path = 'NanumGothic.ttf'
         word_cloud = WordCloud(
             font_path=font_path,
@@ -105,7 +105,7 @@ class Scrap:
         fig = plt.figure(figsize=(10,10))
         plt.imshow(word_cloud)
         plt.axis("off")
-        fig.savefig('./static/' + self.keyword + '.png')
+        fig.savefig('./static/' + self.keyword + str(rand) + '.png')
 
 
     def get_news_list(self):
