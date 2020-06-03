@@ -4,16 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boogle</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='input.css') }}">
 </head>
 <body>
-    <h1><span>B</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></h1>
-    <form action="/post" method="post">
-        <div class="search-bar mx-auto input-group mb-3 mt-5">
-            <input name="keyword" type="text" class="form-control rounded-pill" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <h1><span>I</span><span>n</span><span>f</span><span>o</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span></h1>
+    
+    <div class="container" data-behaviour="search-on-list">
+        <form action="/post" method="post">
+            <input name="keyword" autocomplete=off type="text" class="input-query" data-search-on-list="search"
+                placeholder="Search keyword..." />
+        </form>
+        <p class="list-title">Naver 실시간 검색어</p>
+        <span class="counter" data-search-on-list="counter"></span>
+        <div class="list-wrap">
+            <ul class="list" data-search-on-list="list">
+                <li class="list-item" data-search-on-list="list-item">
+                    <form action="/post" method="post">
+                    <a href="" class="list-item-link">1.<span class="item-list-subtext">{{keywords[0]}}</span></a>
+                    </form>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">2.<span class="item-list-subtext">{{keywords[1]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">3.<span class="item-list-subtext">{{keywords[2]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">4.<span class="item-list-subtext">{{keywords[3]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">5.<span class="item-list-subtext">{{keywords[4]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">6.<span class="item-list-subtext">{{keywords[5]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">7.<span class="item-list-subtext">{{keywords[6]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">8.<span class="item-list-subtext">{{keywords[7]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">9.<span class="item-list-subtext">{{keywords[8]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">10.<span class="item-list-subtext">{{keywords[9]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">11.<span class="item-list-subtext">{{keywords[10]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">12.<span class="item-list-subtext">{{keywords[11]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">13.<span class="item-list-subtext">{{keywords[12]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">14.<span class="item-list-subtext">{{keywords[13]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">15.<span class="item-list-subtext">{{keywords[14]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">16.<span class="item-list-subtext">{{keywords[15]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">17.<span class="item-list-subtext">{{keywords[16]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">18.<span class="item-list-subtext">{{keywords[17]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">19.<span class="item-list-subtext">{{keywords[18]}}</span></a>
+                </li>
+                <li class="list-item" data-search-on-list="list-item">
+                    <a href="" class="list-item-link">20.<span class="item-list-subtext">{{keywords[19]}}</span></a>
+                </li>
+            </ul>
         </div>
-    </form>
-    <p>{{keywords}}</p>
+    </div>
+
+
 </body>
 </html>

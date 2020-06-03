@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*- 
 import requests
 from bs4 import BeautifulSoup
 
-from konlpy.tag import Komoran 
+from konlpy.tag import Hannanum 
 from konlpy.utils import pprint
 from collections import Counter
 from wordcloud import WordCloud
@@ -19,7 +20,7 @@ class Scrap:
 
 
     def get_keyword(self):
-        json = requests.get('https://www.naver.com/srchrank?frm=main&ag=20s&gr=0&ma=0&si=0&en=0&sp=0').json()
+        json = requests.get('https://www.naver.com/srchrank?frm=main&ag=20s&gr=01&ma=-2&si=-2&en=-2&sp=-2').json()
         ranks = json.get("data")
         keywords = []
         
@@ -33,6 +34,7 @@ class Scrap:
         return keywords
 
     def search(self, keyword):
+        self.reset()
         url_list = ["https://search.naver.com/search.naver?where=new&query=",           # 뉴스
                     "https://search.naver.com/search.naver?where=realtime&section=6&query=",    # 트위터
                     "https://search.naver.com/search.naver?where=article&query=",       # 카페
@@ -82,13 +84,15 @@ class Scrap:
             self.merge_sentence += sentence  
 
     
-    def extract(self):
-        kmr = Komoran()
-        nouns = kmr.nouns(self.merge_sentence)
+    def extract(self):  # extract nouns with Komoran
+        hnn = Hannanum()
+        # merge = str(self.merge_sentence.encode('utf-8'), encoding='utf-8') # 인코딩 문제 해결 못함 *
+        merge = self.merge_sentence
+        nouns = hnn.nouns(merge)
         processed = [n for n in nouns if len(n) >= 2]   # min length 2
         count = Counter(processed)
 
-        self.tags = count.most_common(20)
+        self.tags = count.most_common(20)   # max character 20
         print(self.tags)
 
 
@@ -105,7 +109,7 @@ class Scrap:
         fig = plt.figure(figsize=(10,10))
         plt.imshow(word_cloud)
         plt.axis("off")
-        fig.savefig('./static/' + self.keyword + str(rand) + '.png')
+        fig.savefig('./static/' + self.keyword + str(rand) + '.png')    # rand for dynamic file name
 
 
     def get_news_list(self):
@@ -118,5 +122,16 @@ class Scrap:
         return self.blog_list
     def get_post_list(self):
         return self.post_list
+    def get_merge_sentence(self):
+        return self.merge_sentence
     def get_tags(self):
         return self.tags
+
+    def reset(self):
+        self.news_list = []
+        self.realtime_twitter_list = []
+        self.nvcafe_list = []
+        self.blog_list = []
+        self.post_list = []
+        self.merge_sentence = ""
+        self.tags = []

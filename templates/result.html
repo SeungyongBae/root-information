@@ -1,20 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
     <title>Document</title>
 </head>
+
 <body>
-    <p>뉴스 : {{news_list}}</p>
-    <p>트위터 : {{realtime_twitter_list}}</p>
-    <p>카페 : {{nvcafe_list}}</p>
-    <p>블로그 : {{blog_list}}</p>
-    <p>포스트 : {{post_list}}</p>
-    <p>태그 : {{tags}}</p>
+
+    <h1>{{keyword}}<span>Just CSS, No JS!</span></h1>
+
+
+    <ul class="tabs" role="tablist">
+        <li>
+            <input type="radio" name="tabs" id="tab1" checked />
+            <label for="tab1" role="tab" aria-selected="true" aria-controls="panel1" tabindex="0">News</label>
+            <div id="tab-content1" class="tab-content" role="tabpanel" aria-labelledby="description"
+                aria-hidden="false">
+                <p>{{news_list}}</p>
+            </div>
+        </li>
+
+        <li>
+            <input type="radio" name="tabs" id="tab2" />
+            <label for="tab2" role="tab" aria-selected="false" aria-controls="panel2" tabindex="0">Twitter</label>
+            <div id="tab-content2" class="tab-content" role="tabpanel" aria-labelledby="specification"
+                aria-hidden="true">
+                <p>{{realtime_twitter_list}}</p>
+            </div>
+        </li>
+
+        <li>
+            <input type="radio" name="tabs" id="tab3" />
+            <label for="tab3" role="tab" aria-selected="false" aria-controls="panel3" tabindex="0">Cafe</label>
+            <div id="tab-content3" class="tab-content" role="tabpanel" aria-labelledby="specification"
+                aria-hidden="true">
+                <p>{{nvcafe_list}}</p>
+            </div>
+        </li>
+
+        <li>
+            <input type="radio" name="tabs" id="tab4" />
+            <label for="tab4" role="tab" aria-selected="false" aria-controls="panel4" tabindex="0">Blog</label>
+            <div id="tab-content4" class="tab-content" role="tabpanel" aria-labelledby="specification"
+                aria-hidden="true">
+                <p>{{blog_list}}</p>
+            </div>
+        </li>
+
+        <li>
+            <input type="radio" name="tabs" id="tab5" />
+            <label for="tab5" role="tab" aria-selected="false" aria-controls="panel5" tabindex="0">Post</label>
+            <div id="tab-content5" class="tab-content" role="tabpanel" aria-labelledby="specification"
+                aria-hidden="true">
+                <p>{{post_list}}</p>
+            </div>
+        </li>
+    </ul>
+
+    <p class="tags">
+        {{tags}}
+    </p>
     {% if True %}
-    <img src="{{ url_for('static', filename=img_src) }}">
+    <img src="{{ url_for('static', filename=img_src) }}" class="cloud">
     {% endif %}
- 
+
 </body>
 </html>
