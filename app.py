@@ -16,8 +16,8 @@ def index():
                             keywords=keywords)
                             
 
-@app.route('/post', methods=['POST'])
-def post():
+@app.route('/result', methods=['POST'])
+def result():
     value = request.form['keyword'] # input any keyword
     rand = random.randrange(0,9999) # 같은 파일이 있을경우 새로 파일을 생성해서 덮어 씌우더라도 이전의 파일을 전송하기에, 파일이름을 다르게 하기 위함
     path = './static/'
@@ -30,7 +30,6 @@ def post():
             os.remove(path + f)
 
     run.search(value)
-    print(run.get_merge_sentence())
     run.extract()
     run.make_cloud(rand)
 
@@ -40,6 +39,7 @@ def post():
     blog_list = run.get_blog_list()
     post_list = run.get_post_list()
     tags = run.get_tags()
+
 
     return render_template('result.html', 
                             keyword=value,
@@ -53,5 +53,5 @@ def post():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5000, threaded=True)
     

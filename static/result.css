@@ -12,20 +12,21 @@ body {
   text-align: left;
   font-family: Lato;
   color: #fff;
-  background: #9b59b6;
+  background: #59b665;
 }
 
 
 h1 {
-  font-weight: normal;
+  position: relative;
+  font-weight: bold;
   font-size: 40px;
-  font-weight: normal;
   text-transform: uppercase;
   float: left;
   margin: 20px 0 100px 10px;
 }
 
 h1 span {
+  font-weight: normal;
   font-size: 13px;
   display: flex;
   padding-left: 4px;
@@ -58,7 +59,7 @@ h1 span {
   font-size: 20px;
   font-weight: normal;
   text-transform: uppercase;
-  background: #8e44ad;
+  background: #44ad5b;
   cursor: pointer;
   position: relative;
   top: 4px;
@@ -69,7 +70,7 @@ h1 span {
 }
 
 .tabs label:hover {
-  background: #703688;
+  background: #368844;
 }
 
 .tabs .tab-content {
@@ -83,13 +84,13 @@ h1 span {
   position: absolute;
   top: 53px;
   left: 0;
-  background: #612e76;
+  background: #2e763e;
 }
 
 .tabs [id^=tab]:checked + label {
   top: 0;
   padding-top: 17px;
-  background: #612e76;
+  background: #2e7634;
 }
 
 .tabs [id^=tab]:checked ~ [id^=tab-content] {
@@ -100,7 +101,7 @@ h1 span {
 .tags{
   position: relative ;
   width: 800px;
-  margin: 350px auto 0 auto;
+  margin: 400px auto 0 auto;
   display: block;
 }
 .cloud{

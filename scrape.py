@@ -20,7 +20,7 @@ class Scrap:
 
 
     def get_keyword(self):
-        json = requests.get('https://www.naver.com/srchrank?frm=main&ag=20s&gr=01&ma=-2&si=-2&en=-2&sp=-2').json()
+        json = requests.get('https://www.naver.com/srchrank?frm=main&ag=20s&gr=01&ma=-2&si=0&en=0&sp=0').json()
         ranks = json.get("data")
         keywords = []
         
@@ -28,9 +28,8 @@ class Scrap:
             rank = r.get("rank")
             keyword = r.get("keyword")
             keywords.append(keyword)
-            # print(rank, keyword)
 
-        print(keywords)
+        #print(keywords)
         return keywords
 
     def search(self, keyword):
@@ -89,11 +88,15 @@ class Scrap:
         # merge = str(self.merge_sentence.encode('utf-8'), encoding='utf-8') # 인코딩 문제 해결 못함 *
         merge = self.merge_sentence
         nouns = hnn.nouns(merge)
+
+        for n in nouns:     # 특수문자 제거
+            n = n.replace("'","").replace(",","")
+
         processed = [n for n in nouns if len(n) >= 2]   # min length 2
         count = Counter(processed)
 
         self.tags = count.most_common(20)   # max character 20
-        print(self.tags)
+        # print(self.tags)
 
 
     def make_cloud(self, rand):

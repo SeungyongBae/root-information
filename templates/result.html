@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
-    <title>Document</title>
+    <title>Result</title>
 </head>
 
 <body>
 
-    <h1>{{keyword}}<span>Just CSS, No JS!</span></h1>
+    <h1>{{keyword}}<span>Information</span></h1>
 
 
     <ul class="tabs" role="tablist">
@@ -19,7 +19,11 @@
             <label for="tab1" role="tab" aria-selected="true" aria-controls="panel1" tabindex="0">News</label>
             <div id="tab-content1" class="tab-content" role="tabpanel" aria-labelledby="description"
                 aria-hidden="false">
-                <p>{{news_list}}</p>
+                <p>                        
+                    {% for line in news_list %}
+                        ● {{line}}</br>
+                    {% endfor %}
+                </p>
             </div>
         </li>
 
@@ -28,7 +32,11 @@
             <label for="tab2" role="tab" aria-selected="false" aria-controls="panel2" tabindex="0">Twitter</label>
             <div id="tab-content2" class="tab-content" role="tabpanel" aria-labelledby="specification"
                 aria-hidden="true">
-                <p>{{realtime_twitter_list}}</p>
+                <p>
+                    {% for line in realtime_twitter_list %}
+                        ● {{line}}</br>
+                    {% endfor %}
+                </p>
             </div>
         </li>
 
@@ -37,7 +45,11 @@
             <label for="tab3" role="tab" aria-selected="false" aria-controls="panel3" tabindex="0">Cafe</label>
             <div id="tab-content3" class="tab-content" role="tabpanel" aria-labelledby="specification"
                 aria-hidden="true">
-                <p>{{nvcafe_list}}</p>
+                <p>
+                    {% for line in nvcafe_list %}
+                        ● {{line}}</br>
+                    {% endfor %}
+                </p>
             </div>
         </li>
 
@@ -46,7 +58,11 @@
             <label for="tab4" role="tab" aria-selected="false" aria-controls="panel4" tabindex="0">Blog</label>
             <div id="tab-content4" class="tab-content" role="tabpanel" aria-labelledby="specification"
                 aria-hidden="true">
-                <p>{{blog_list}}</p>
+                <p>
+                    {% for line in blog_list %}
+                        ● {{line}}</br>
+                    {% endfor %}
+                </p>
             </div>
         </li>
 
@@ -55,13 +71,20 @@
             <label for="tab5" role="tab" aria-selected="false" aria-controls="panel5" tabindex="0">Post</label>
             <div id="tab-content5" class="tab-content" role="tabpanel" aria-labelledby="specification"
                 aria-hidden="true">
-                <p>{{post_list}}</p>
+                <p>
+                    {% for line in post_list %}
+                        ● {{line}}</br>
+                    {% endfor %}
+                </p>
             </div>
         </li>
     </ul>
+    <div></div>
 
     <p class="tags">
-        {{tags}}
+        {% for tag, count in tags%}
+            #{{tag}}&nbsp;
+        {% endfor %}
     </p>
     {% if True %}
     <img src="{{ url_for('static', filename=img_src) }}" class="cloud">

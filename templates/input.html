@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boogle</title>
+    <title>Information</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='input.css') }}">
 </head>
+
 <body>
-    <h1><span>I</span><span>n</span><span>f</span><span>o</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span></h1>
-    
+    <h1 data-heading="information">information</h1>
+
+
     <div class="container" data-behaviour="search-on-list">
-        <form action="/post" method="post">
+        <form action="/result" method="post">
             <input name="keyword" autocomplete=off type="text" class="input-query" data-search-on-list="search"
                 placeholder="Search keyword..." />
         </form>
@@ -18,72 +21,72 @@
         <span class="counter" data-search-on-list="counter"></span>
         <div class="list-wrap">
             <ul class="list" data-search-on-list="list">
-                <li class="list-item" data-search-on-list="list-item">
-                    <form action="/post" method="post">
-                    <a href="" class="list-item-link">1.<span class="item-list-subtext">{{keywords[0]}}</span></a>
-                    </form>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">2.<span class="item-list-subtext">{{keywords[1]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">3.<span class="item-list-subtext">{{keywords[2]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">4.<span class="item-list-subtext">{{keywords[3]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">5.<span class="item-list-subtext">{{keywords[4]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">6.<span class="item-list-subtext">{{keywords[5]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">7.<span class="item-list-subtext">{{keywords[6]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">8.<span class="item-list-subtext">{{keywords[7]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">9.<span class="item-list-subtext">{{keywords[8]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">10.<span class="item-list-subtext">{{keywords[9]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">11.<span class="item-list-subtext">{{keywords[10]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">12.<span class="item-list-subtext">{{keywords[11]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">13.<span class="item-list-subtext">{{keywords[12]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">14.<span class="item-list-subtext">{{keywords[13]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">15.<span class="item-list-subtext">{{keywords[14]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">16.<span class="item-list-subtext">{{keywords[15]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">17.<span class="item-list-subtext">{{keywords[16]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">18.<span class="item-list-subtext">{{keywords[17]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">19.<span class="item-list-subtext">{{keywords[18]}}</span></a>
-                </li>
-                <li class="list-item" data-search-on-list="list-item">
-                    <a href="" class="list-item-link">20.<span class="item-list-subtext">{{keywords[19]}}</span></a>
-                </li>
+                <form action="/result" method="post">
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>1. <input class="item-button" type="submit" name="keyword" value="{{keywords[0]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>2. <input class="item-button" type="submit" name="keyword" value="{{keywords[1]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>3. <input class="item-button" type="submit" name="keyword" value="{{keywords[2]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>4. <input class="item-button" type="submit" name="keyword" value="{{keywords[3]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>5. <input class="item-button" type="submit" name="keyword" value="{{keywords[4]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>6. <input class="item-button" type="submit" name="keyword" value="{{keywords[5]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>7. <input class="item-button" type="submit" name="keyword" value="{{keywords[6]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>8. <input class="item-button" type="submit" name="keyword" value="{{keywords[7]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>9. <input class="item-button" type="submit" name="keyword" value="{{keywords[8]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>10. <input class="item-button" type="submit" name="keyword" value="{{keywords[9]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>11. <input class="item-button" type="submit" name="keyword" value="{{keywords[10]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>12. <input class="item-button" type="submit" name="keyword" value="{{keywords[11]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>13. <input class="item-button" type="submit" name="keyword" value="{{keywords[12]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>14. <input class="item-button" type="submit" name="keyword" value="{{keywords[13]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>15. <input class="item-button" type="submit" name="keyword" value="{{keywords[14]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>16. <input class="item-button" type="submit" name="keyword" value="{{keywords[15]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>17. <input class="item-button" type="submit" name="keyword" value="{{keywords[16]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>18. <input class="item-button" type="submit" name="keyword" value="{{keywords[17]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>19. <input class="item-button" type="submit" name="keyword" value="{{keywords[18]}}" /></span>
+                    </li>
+                    <li class="list-item" data-search-on-list="list-item">
+                        <span>20. <input class="item-button" type="submit" name="keyword" value="{{keywords[19]}}" /></span>
+                    </li>
+                </form>
             </ul>
         </div>
     </div>
-
-
 </body>
+
+
 </html>
